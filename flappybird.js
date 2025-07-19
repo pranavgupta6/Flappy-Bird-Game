@@ -64,6 +64,7 @@ window.onload = function(){
 
     //setting jump
     document.addEventListener("keydown", moveBird);
+    document.addEventListener("touchstart", moveBird);
 }
 
 
@@ -147,18 +148,17 @@ function placePipes(){
 }
 
 function moveBird(e){
-    if ( e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX"){
-        //jump
-        velocityY = -6;
+    //jump
+    velocityY = -6;
 
-        //reset the game
-        if(gameOver){
-            bird.y=birdY;
-            pipeArray = [];
-            score = 0;
-            gameOver = false;
-        }
+    //reset the game
+    if(gameOver){
+        bird.y=birdY;
+        pipeArray = [];
+        score = 0;
+        gameOver = false;
     }
+
 }
 
 function detectCollision (bird,pipe) {
